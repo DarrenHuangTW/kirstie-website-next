@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -293,12 +294,12 @@ export default function Products() {
             >
               立即諮詢
             </a>
-            <a
+            <Link
               href="/cases"
               className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200"
             >
               查看案例
-            </a>
+            </Link>
           </div>
         </div>
       </section>
