@@ -28,19 +28,22 @@ export default function Home() {
       title: "新竹科學園區擴建工程前進指揮所",
       location: "新竹市",
       description: "為大型科技園區擴建項目提供完整的臨時辦公解決方案",
-      image: "https://placehold.co/400x300/DADADA/888888?text=科學園區案例"
+      image: "https://placehold.co/400x300/DADADA/888888?text=科學園區案例",
+      slug: "hsinchu-science-park"
     },
     {
       title: "桃園航空城計畫員工生活區",
       location: "桃園市",
       description: "大型基礎建設項目的員工宿舍與生活設施規劃",
-      image: "https://placehold.co/400x300/DADADA/888888?text=航空城案例"
+      image: "https://placehold.co/400x300/DADADA/888888?text=航空城案例",
+      slug: "taoyuan-airport-city"
     },
     {
       title: "高雄港區工程臨時辦公室建置",
       location: "高雄市",
       description: "港區重大工程的指揮中心與辦公空間配置",
-      image: "https://placehold.co/400x300/DADADA/888888?text=港區案例"
+      image: "https://placehold.co/400x300/DADADA/888888?text=港區案例",
+      slug: "kaohsiung-port"
     }
   ];
 
@@ -158,31 +161,33 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredCases.map((caseItem, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className="relative h-48">
-                  <Image
-                    src={caseItem.image}
-                    alt={caseItem.title}
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center mb-2">
-                    <svg className="w-4 h-4 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-sm text-gray-500">{caseItem.location}</span>
+              <Link key={index} href={`/cases/${caseItem.slug}`} className="block">
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <div className="relative h-48">
+                    <Image
+                      src={caseItem.image}
+                      alt={caseItem.title}
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                    {caseItem.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {caseItem.description}
-                  </p>
+                  <div className="p-6">
+                    <div className="flex items-center mb-2">
+                      <svg className="w-4 h-4 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-sm text-gray-500">{caseItem.location}</span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      {caseItem.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {caseItem.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
